@@ -15,12 +15,7 @@
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 
-	<!-- Favicon  -->
-    <link rel="icon" href="images/logo.png">
-</head>
-<body data-spy="scroll" data-target=".fixed-top">
-
-    <!-- Preloader -->
+<!-- Preloader -->
 	<div class="spinner-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
@@ -30,142 +25,7 @@
     </div>
     <!-- end of preloader -->
 
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        
-        <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.png" alt="alternative"></a>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-awesome fas fa-bars"></span>
-            <span class="navbar-toggler-awesome fas fa-times"></span>
-        </button>
-        <!-- end of mobile menu toggle button -->
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">Why UniConnect?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a id="loginButton" class="nav-link page-scroll">
-                            Login &nbsp</a>
-                </li>
-                <li class="nav-item">
-                  <span class="navbar-text">
-                             <a id="signupButton" style="background-color: #cf1d52; padding:9px; border-radius: 8px;">
-                             <span class="fa fa-sign-in"></span>Try for Free</a>
-                  </span>
-                </li>
-            </ul>
-            <span class="nav-item social-icons" style="">
-                <span class="fa-stack">
-                    <a href="#link">
-                        <i class="fas fa-circle fa-stack-2x facebook"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <!-- <span class="fa-stack">
-                    <a href="#link">
-                        <i class="fas fa-circle fa-stack-2x twitter"></i>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span> -->
-            </span>
-        </div>
-    </nav>
-	    <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg" role="content">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Login </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
-                            </div>
-                            <div class="col-sm-auto">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox">
-                                    <label class="form-check-label"> Remember me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-	    <div id="SignupModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg" role="content">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">SignUp </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <label class="sr-only" for="exampleInputFirstName3">First Name</label>
-                                <input type="first name" class="form-control form-control-sm mr-1" id="exampleInputFirstName3" placeholder="Enter FirstName">
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label class="sr-only" for="exampleInputLastName3">Last Name</label>
-                            <input type="last name" class="form-control form-control-sm mr-1" id="exampleInputLastName3" placeholder="Enter Lastname">
-                    </div>
-                            <div class="form-group col-sm-4">
-                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
-                            </div>
-                            <div class="col-sm-auto">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox">
-                                    <label class="form-check-label"> Remember me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign up</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-<!-- end of navbar -->
-    <!-- end of navigation -->
-
+ <?php include 'header.php';?>
 
     <!-- Header -->
     <header id="header" class="header">
@@ -178,7 +38,7 @@
                             <p class="p-large">Teamwork can be hard, messy, complicated… and still the best way to work. That’s why we made UniConnect – a place where people get work done, together. </p>
                               <span class="btn-solid-lg page-scroll">
                                          <a id="signupButton">
-                                         <span class="fa fa-sign-in"></span>Try for Free</a>
+                                         <span class="fa fa-sign-in"></span>Get Started</a>
                               </span>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
