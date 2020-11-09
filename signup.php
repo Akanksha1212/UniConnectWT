@@ -24,7 +24,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 if($stmt->num_rows == 1){
                     $username_err = "This username is already taken.";
-	            echo $username_err;
                 } else{
                     $username = trim($_POST["name"]);
                 }
@@ -154,6 +153,7 @@ $mysqli->close();
 
       <div class="title"><b>Welcome Folk! <br> Create Your Account</b></div> <br>
 <form method="post" name= "login" id="login" onsubmit="return validateForm()" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<span class="help-block" style= "color: red;" ><?php echo $username_err; ?></span>
       <div class="inputBox">
 	 <input type="text" name="fname" id="fname" required onkeyup="this.setAttribute('value', this.value);" value="">
          <label>First Name</label>
