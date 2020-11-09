@@ -36,12 +36,6 @@
                     <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">Why UniConnect?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
                   <a id="loginButton" class="nav-link page-scroll" href="login.php">
                             Login &nbsp</a>
                 </li>
@@ -54,9 +48,8 @@
             </ul>
             <span class="nav-item social-icons" style="">
                 <span class="fa-stack">
-                    <a href="#link">
-                        <i class="fas fa-circle fa-stack-2x facebook"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    <a href="https://github.com/Akanksha1212/UniConnectWT">
+                        <i class="fab fa-github fa-2x"></i>
                     </a>
                 </span>
                 <!-- <span class="fa-stack">

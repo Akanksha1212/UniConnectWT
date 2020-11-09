@@ -709,6 +709,7 @@ input[type='checkbox'] {
 /*********************/
 .header {
 	background-color: #fff;
+	border-radius: 10px;
 }
 
 .header .header-content {

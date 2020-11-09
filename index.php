@@ -24,8 +24,59 @@
         </div>
     </div>
     <!-- end of preloader -->
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        
+        <a class="navbar-brand logo-image" href="index.php"><img src="images/logo.png" alt="alternative"></a>
 
- <?php include 'header.php';?>
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+        <!-- end of mobile menu toggle button -->
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#services">Why UniConnect?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a id="loginButton" class="nav-link page-scroll" href="login.php">
+                            Login &nbsp</a>
+                </li>
+                <li class="nav-item">
+                  <span class="navbar-text">
+                             <a id="signupButton" href="signup.php" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None;">
+                             <span class="fa fa-sign-in"></span>Get Started</a>
+                  </span>
+                </li>
+            </ul>
+            <span class="nav-item social-icons" style="">
+                <span class="fa-stack">
+                    <a href="https://github.com/Akanksha1212/UniConnectWT">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </span>
+                <!-- <span class="fa-stack">
+                    <a href="#link">
+                        <i class="fas fa-circle fa-stack-2x twitter"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span> -->
+            </span>
+        </div>
+    </nav>
+
+
+<!-- end of navbar -->
+    <!-- end of navigation -->
 
     <!-- Header -->
     <header id="header" class="header">

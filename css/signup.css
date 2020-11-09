@@ -1,0 +1,123 @@
+body {
+   background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba(33,198,224,1) 69%, rgba(0,123,255,1) 100%); 
+}
+
+
+.login-card {
+-webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 50%;
+  background-color: white;
+  margin-left: 25%;
+  margin-top: 7.5%;
+  height:  1160px;
+
+}
+
+.image-card img {
+ margin-left: 50px;
+ margin-top: 350px;
+ height: 400px;
+}
+
+.login-card .vl {
+  position: absolute;
+  border-left: 2px solid #e0e5e6;
+  height: 985px;
+  margin-left: 23%;
+  top:260px;
+}
+
+.box {
+position: absolute;
+  margin-left: 26%;
+  top: 250px; }
+
+.title {
+ color: #cf1d52;
+font-size: 35px;
+line-height: 1.4;
+}
+
+.box .inputBox {
+  position: relative;
+}
+
+.box .inputBox input {
+  width: 100%;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #000;
+  letter-spacing: 0.062rem;
+  margin-bottom: 1.875rem;
+  border: none;
+  border-bottom: 0.065rem solid #000;
+  outline: none;
+  background: transparent;
+}
+
+.box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #000;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label,
+.box .inputBox input:not([value=""]) ~ label {
+  top: -1.125rem;
+  left: 0;
+  color: #cf1d52;
+  font-size: 0.75rem;
+}
+
+.box input[type="submit"] {
+  background-color: #cf1d52; 
+  padding:9px;
+  width: 200px; 
+  border-radius: 8px; 
+  text-decoration: None; 
+  color:white;
+  font-weight: bold;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-width: 5px;
+  border-color: #cf1d52;
+}
+
+.box input:required {
+    box-shadow:none;
+}
+
+.box input[type="submit"]:hover {
+  background-color: #ad1845;
+}
+
+
+.signup-btn {
+  color: #cf1d52; 
+  padding:16px;
+  border-radius: 8px; 
+  text-decoration: None; 
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.signup-btn:hover{
+ text-decoration: None; 
+ color: #ad1845;
+}
+
+#message {
+ display:block;
+ line-height: 0;
+}
