@@ -51,7 +51,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </ul>
             <span class="nav-item social-icons" style="">
                 <span class="fa-stack">
-                    <a href="https://github.com/Akanksha1212/UniConnectWT">
+                    <a href="profile.php">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </a>
                 </span>
@@ -79,7 +79,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="row">
                 <div class="col-lg-12">
                     <img src ="images/uni.png">
-                    <h4>Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to UniConnect</h4>
+                    <h4>Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to UniConnect!</h4>
 <br>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

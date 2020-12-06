@@ -16,11 +16,27 @@
     <link href="css/profile.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="js/validate.js"></script> 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<!-- Favicon  -->
     <link rel="icon" href="images/logo.png">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
+<?php
+include('config.php');
+// Initialize the session
+session_start();
+//print_r ($_SESSION);
+$session_id= $_SESSION["id"];
+//echo "<p>"; 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 
     <!-- Navigation -->
        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -46,32 +62,52 @@
                 </ul>
             </div>
             
-      </nav>    
-      
-    <div class="profile-card" >
-        <div class="image-container">
-            <img class="img-fluid" src="images/team-member-1.svg" alt="alternative" style="width:100%">
-        </div>
-
+      </nav> 
+<?php
+$sql="SELECT * FROM Users where user_id= $session_id";
+$result=mysqli_query($mysqli,$sql);
+?>
+<?php
+while($rows=mysqli_fetch_array($result)){
+?>   
+    <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        <?php echo $rows['first_name']." ".$rows['last_name']; ?>
+                                    </h5>
+                                    <h6>
+                                        <?php echo "@".$rows['user_name']; ?>
+                                    </h6>
+                                    <p class="profile-rating"><?php echo $rows['email']; ?></p>
     </div>
+</div>
 
-    <form action="action_page.php">
-        <div class="container">
+    <form action="action_page.php" method="post">
+        <div class="container" style="padding: 50px;">
           <h1>Profile Information</h1>
           <p>Please fill  this form to create your profile.</p>
           <hr>
       
           <label for="first name"><b>First Name</b></label>
-          <input type="text" placeholder="Enter First name" name="first name" id="first" required>
+          <input type="text" value="<?php echo $rows['first_name']; ?>" name="first name" id="first" required>
          
           <label for="last name"><b>Last Name</b></label>
-          <input type="text" placeholder="Enter Last name" name="last name" id="last" required>
-          
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          <input type="text" value="<?php echo $rows['last_name']; ?>" name="last name" id="last" required>
           
           <label for="phone num"><b>Phone Number</b></label>
-          <input type="text" placeholder="Enter Phone num" name="phone num" id="phone" required>
+          <input type="text" value="<?php echo $rows['phone']; ?>" id="phone" required>
           
           <label for="country"><b>Country Name</b></label>
           <input type="text" placeholder="Enter Country name" name="Country name" id="country" required>
@@ -96,15 +132,20 @@
           
           <label for="linkedin url"><b>Linkedin URL</b></label>
           <input type="text" placeholder="Enter linkedin url" name="likedin url" id="linkedin url" required>
-
-          <button type="submit" class="registerbtn">CREATE</button>
-          <button type="submit" class="update">UPDATE</button>
+		<br><br>
+          <center><a href="profile.php" class = "signup-btn" style="">&nbsp Save Profile &nbsp</a></center>
+          <!--<button type="submit" class="update">UPDATE</button>-->
 
     
         </div>
 
       
       </form>
+</div>
+<?php 
+// close while loop 
+}
+?>
       
       </body>
 </html>
