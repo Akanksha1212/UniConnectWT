@@ -35,12 +35,6 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
 /* Add a blue text color to links */
 a {
   color: dodgerblue;
@@ -80,12 +74,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
     right: 0;
     top: 0;
 }
-.profile-head h5{
-    color: #333;
-}
-.profile-head h6{
-    color: #cf1d52;
-}
+
 .profile-edit-btn{
     border: none;
     border-radius: 1.5rem;
@@ -95,10 +84,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
     color: #6c757d;
     cursor: pointer;
 }
-.proile-rating{
-    font-size: 12px;
+.profile-rating{
+    font-size: 26px;
     color: #818182;
-    margin-top: 5%;
 }
 .profile-head .nav-tabs{
     margin-bottom:5%;

@@ -84,13 +84,16 @@ while($rows=mysqli_fetch_array($result)){
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
-                                    <h5>
-                                        <?php echo $rows['first_name']." ".$rows['last_name']; ?>
-                                    </h5>
-                                    <h6>
-                                        <?php echo "@".$rows['user_name']; ?>
-                                    </h6>
-                                    <p class="profile-rating"><?php echo $rows['email']; ?></p>
+				    <br>
+                                    <span style= "font-size: 40px;">
+                                        <b><?php echo $rows['first_name']." ".$rows['last_name']; ?></b>
+                                    </span>
+                             	    <span style= "color: #cf1d52;">
+                                        <?php echo "(@".$rows['user_name'].")"; ?>  
+                                    </span>
+				   <br>
+				    <span class="profile-rating"><i><?php echo $rows['bio']; ?></i></span><br>
+				    <span style= "color: black;" ><?php echo $rows['email']; ?></span>
     </div>
 </div>
 
@@ -105,6 +108,9 @@ while($rows=mysqli_fetch_array($result)){
          
           <label for="last name"><b>Last Name</b></label>
           <input type="text" value="<?php echo $rows['last_name']; ?>" name="last_name" id="last" required>
+
+	  <label for="bio"><b>Bio</b></label>
+          <input type="text" placeholder="Enter Bio" value="<?php echo $rows['bio']; ?>" name="bio" id="bio" >
           
           <label for="phone num"><b>Phone Number</b></label>
           <input type="text" value="<?php echo $rows['phone']; ?>" id="phone" required>
@@ -129,7 +135,7 @@ while($rows=mysqli_fetch_array($result)){
 	  <option value="3rd" <?php if($rows['course_year']=="3rd"){echo "selected";} ?> >3rd</option>
 	  <option value="4th" <?php if($rows['course_year']=="4th"){echo "selected";} ?> >4th</option>
   	  </select><br>
-          
+           
           <label for="facebook url"><b>Facebook URL</b></label>
           <input type="text" placeholder="Enter Facebook URL" value="<?php echo $rows['facebook_url']; ?>" name="facebook_url" id="facebook url" >
           
@@ -165,11 +171,12 @@ while($rows=mysqli_fetch_array($result)){
 	$university = $_POST['university'];
 	$course = $_POST['course'];
 	$course_year = $_POST['course_year'];
+	$bio = $_POST['bio'];
 	$facebook_url = $_POST['facebook_url'];
 	$github_url = $_POST['github_url'];
 	$linkedin_url = $_POST['linkedin_url'];
       $query = "UPDATE Users SET first_name = '$first_name',
-                       last_name= '$last_name', country= '$country', bio= '$bio', state= '$state', university= 		        '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url', 				github_url='$github_url', linkedin_url= '$linkedin_url'
+                       last_name= '$last_name', country= '$country', bio= '$bio', state= '$state', university= 		        '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url', 				github_url='$github_url', linkedin_url= '$linkedin_url', bio= '$bio'
                       WHERE user_id = '$session_id'";
                     $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                     ?>
