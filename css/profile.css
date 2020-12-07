@@ -128,7 +128,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
 
 .signup-btn {
   color: white; 
-  padding:16px;
+  padding: 16px;
   border-radius: 8px; 
   text-decoration: None; 
   font-weight: bold;
@@ -139,6 +139,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
 
 .signup-btn:hover{
  text-decoration: None; 
- color: #ad1845;
+ background-color: white;
+ color: #cf1d52;
 }
 

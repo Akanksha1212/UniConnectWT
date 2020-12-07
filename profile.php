@@ -113,7 +113,7 @@ while($rows=mysqli_fetch_array($result)){
           <input type="text" placeholder="Enter Bio" value="<?php echo $rows['bio']; ?>" name="bio" id="bio" >
           
           <label for="phone num"><b>Phone Number</b></label>
-          <input type="text" value="<?php echo $rows['phone']; ?>" id="phone" required>
+          <input type="text" value="<?php echo $rows['phone']; ?>" name= "phone" id="phone" required>
           
           <label for="country"><b>Country Name</b></label>
           <input type="text" placeholder="Enter Country name" value="<?php echo $rows['country']; ?>" name="country" id="country">
@@ -176,7 +176,7 @@ while($rows=mysqli_fetch_array($result)){
 	$github_url = $_POST['github_url'];
 	$linkedin_url = $_POST['linkedin_url'];
       $query = "UPDATE Users SET first_name = '$first_name',
-                       last_name= '$last_name', country= '$country', bio= '$bio', state= '$state', university= 		        '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url', 				github_url='$github_url', linkedin_url= '$linkedin_url', bio= '$bio'
+                       last_name= '$last_name', country= '$country', phone='$phone', bio= '$bio', state= '$state', university= 		        		       '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url',github_url='$github_url', 			       linkedin_url= '$linkedin_url', bio= '$bio'
                       WHERE user_id = '$session_id'";
                     $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
                     ?>
