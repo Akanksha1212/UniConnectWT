@@ -41,39 +41,6 @@ hr {
   margin-bottom: 25px;
 }
 
-/* Set a style for the submit/register button */
-.registerbtn {
-    color: #cf1d52; 
-    padding:16px;
-    border-radius: 8px; 
-    text-decoration: None; 
-    font-weight: bold;
-    cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity:1;
-  color: #ad1845;
-
-}
-.update {
-    background-color: #cf1d52; 
-    padding:16px;
-    border-radius: 8px; 
-    text-decoration: None; 
-    font-weight: bold;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
-    transition: 0.3s;
-  }
-  
-  .update:hover{
-   text-decoration: None; 
-   color: #ad1845;
-  }
-  
-
 /* Add a blue text color to links */
 a {
   color: dodgerblue;
@@ -172,13 +139,14 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
 }
 
 .signup-btn {
-  color: #cf1d52; 
+  color: white; 
   padding:16px;
   border-radius: 8px; 
   text-decoration: None; 
   font-weight: bold;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
   transition: 0.3s;
+  background-color: #cf1d52; 
 }
 
 .signup-btn:hover{
@@ -186,6 +154,3 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
  color: #ad1845;
 }
 
-
-
- 

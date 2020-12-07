@@ -94,46 +94,53 @@ while($rows=mysqli_fetch_array($result)){
     </div>
 </div>
 
-    <form action="action_page.php" method="post">
+    <form action="#" method="post">
         <div class="container" style="padding: 50px;">
           <h1>Profile Information</h1>
-          <p>Please fill  this form to create your profile.</p>
+          <p>Please Edit your details and press <b>Save Profile</b> button.</p>
           <hr>
       
           <label for="first name"><b>First Name</b></label>
-          <input type="text" value="<?php echo $rows['first_name']; ?>" name="first name" id="first" required>
+          <input type="text" value="<?php echo $rows['first_name']; ?>" name="first_name" id="first" required>
          
           <label for="last name"><b>Last Name</b></label>
-          <input type="text" value="<?php echo $rows['last_name']; ?>" name="last name" id="last" required>
+          <input type="text" value="<?php echo $rows['last_name']; ?>" name="last_name" id="last" required>
           
           <label for="phone num"><b>Phone Number</b></label>
           <input type="text" value="<?php echo $rows['phone']; ?>" id="phone" required>
           
           <label for="country"><b>Country Name</b></label>
-          <input type="text" placeholder="Enter Country name" name="Country name" id="country" required>
+          <input type="text" placeholder="Enter Country name" value="<?php echo $rows['country']; ?>" name="country" id="country">
           
           <label for="state"><b>State Name</b></label>
-          <input type="text" placeholder="Enter State name" name="State name" id="state" required>
+          <input type="text" placeholder="Enter State name" value="<?php echo $rows['state']; ?>" name="state" id="state">
           
           <label for="University name"><b>University Name</b></label>
-          <input type="text" placeholder="Enter University name" name="university name" id="university" required>
+          <input type="text" placeholder="Enter University name" value="<?php echo $rows['university']; ?>" name="university" id="university">
           
           <label for="course"><b>Course Name</b></label>
-          <input type="text" placeholder="Enter Course name" name="course name" id="course" required>
+          <input type="text" placeholder="Enter Course name" value="<?php echo $rows['course']; ?>" name="course" id="course">
           
-          <label for="course year"><b>Course year</b></label>
-          <input type="text" placeholder="Enter Course Year" name="course year" id="course year" required>
+ 	  <label for="course"><b>Course Year</b></label><br>
+          <select name="course_year" style=" margin-bottom: 20px; width: 300px; padding: 5px 35px 5px 5px; font-size: 24px; height: 50px; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(images/down-arrow.png) 96% / 7% no-repeat #f1f1f1; color: dark grey;">
+    	  <option value="" selected="selected">Select Course year &nbsp &nbsp &nbsp</option>
+	  <option value="1st" <?php if($rows['course_year']=="1st"){echo "selected";} ?> >1st</option>
+	  <option value="2nd" <?php if($rows['course_year']=="2nd"){echo "selected";} ?> >2nd</option>
+	  <option value="3rd" <?php if($rows['course_year']=="3rd"){echo "selected";} ?> >3rd</option>
+	  <option value="4th" <?php if($rows['course_year']=="4th"){echo "selected";} ?> >4th</option>
+  	  </select><br>
           
           <label for="facebook url"><b>Facebook URL</b></label>
-          <input type="text" placeholder="Enter Facebook URL" name="facebook url" id="facebook url" required>
+          <input type="text" placeholder="Enter Facebook URL" value="<?php echo $rows['facebook_url']; ?>" name="facebook_url" id="facebook url" >
           
           <label for="github url"><b>Github URL</b></label>
-          <input type="text" placeholder="Enter Github url" name="github url" id="github url" required>
+          <input type="text" placeholder="Enter Github url" value="<?php echo $rows['github_url']; ?>" name="github_url" id="github url" >
           
           <label for="linkedin url"><b>Linkedin URL</b></label>
-          <input type="text" placeholder="Enter linkedin url" name="likedin url" id="linkedin url" required>
+          <input type="text" placeholder="Enter linkedin url" value="<?php echo $rows['linkedin_url']; ?>" name="linkedin_url" id="linkedin url">
 		<br><br>
-          <center><a href="profile.php" class = "signup-btn" style="">&nbsp Save Profile &nbsp</a></center>
+	  <center><input type="submit" name="submit" value="Save Profile" class="signup-btn"></center>
+          <!--<center><a href="profile.php" class = "signup-btn" style="">&nbsp Save Profile &nbsp</a></center>-->
           <!--<button type="submit" class="update">UPDATE</button>-->
 
     
@@ -146,6 +153,35 @@ while($rows=mysqli_fetch_array($result)){
 // close while loop 
 }
 ?>
+
+<?php
+      if(isset($_POST['submit'])){
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $phone = $_POST['phone'];
+        $country = $_POST['country'];
+	$bio = $_POST['bio'];
+	$state = $_POST['state'];
+	$university = $_POST['university'];
+	$course = $_POST['course'];
+	$course_year = $_POST['course_year'];
+	$facebook_url = $_POST['facebook_url'];
+	$github_url = $_POST['github_url'];
+	$linkedin_url = $_POST['linkedin_url'];
+      $query = "UPDATE Users SET first_name = '$first_name',
+                       last_name= '$last_name', country= '$country', bio= '$bio', state= '$state', university= 		        '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url', 				github_url='$github_url', linkedin_url= '$linkedin_url'
+                      WHERE user_id = '$session_id'";
+                    $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
+                    ?>
+                     <script type="text/javascript">
+            alert("Update Successfull.");
+            window.location = "profile.php";
+        </script>
+        <?php
+             }
+            
+?>
+<!--<?php echo $rows['course_year'];?> -->
       
       </body>
 </html>
