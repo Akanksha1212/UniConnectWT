@@ -49,8 +49,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	<?php
 	while ($rows = mysqli_fetch_array($result)) { 			    
 	?>
+	<a href="reset-password.php" class="" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1440px; top: 42%">Create New Channel</a>
 	<div class="dropdown">
-		<a href="reset-password.php" class="" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white">Create New Channel</a>
                 <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
 		<div class="dropdown-content">
         	<a href="profile.php">Edit Profile</a>

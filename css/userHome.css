@@ -21,7 +21,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
 }
 .dropdown {
   position: relative;
-  left: 1240px;
+  left: 1460px;
 }
 
 .dropdown a {
@@ -51,7 +51,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 .dropdown-content a:hover {
