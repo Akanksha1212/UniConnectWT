@@ -10,11 +10,25 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/fontawesome-all.css" rel="stylesheet">
     <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/magnific-popup.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	<link href="css/userHome.css" rel="stylesheet">
-<link rel="icon" href="images/logo.png">
-</head>
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/userHome.css" rel="stylesheet">
+    <link rel="icon" href="images/logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <script>
+	$(document).ready(function(){
+
+	  $('a#create').click(function(){
+	  $("#box").fadeIn('slow');
+	  $('form').fadeIn('slow');
+		});
+
+	  $('#cancel').click(function(){
+	  $('#box,form').hide();
+		});
+	}); 
+    </script>
 <body>
 <?php
 // Initialize the session
@@ -49,7 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	<?php
 	while ($rows = mysqli_fetch_array($result)) { 			    
 	?>
-	<a href="reset-password.php" class="" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1440px; top: 42%">Create New Channel</a>
+	<a id="create" href="#" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1440px; top: 42%; font-weight: bold; height:40px;">Create New Channel</a>
 	<div class="dropdown">
                 <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
 		<div class="dropdown-content">
@@ -183,5 +197,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </div> <!-- end of cards-1 -->
     <!-- end of services -->
 </div>
+<div id="box" class="box" align="center"></div>
+        <form method="post" action="#">
+        <b><span style= "color: #cf1d52; font-size: 30px;"><center>Create New Channel</center></span></b><br>
+	<b>Channel Name</b><br>
+        <input type="text" name="ch_name" /><br>
+        <br/><b>Channel Description</b><br>
+        <textarea name="ch_description"></textarea><br><br>
+        <center><input type="submit" value="Create" class="btn"/> &nbsp; &nbsp;
+        <button type="button" id="cancel" class="btn">Cancel</button></center>
+        </form>
+
 </body>
 </html>

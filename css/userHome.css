@@ -61,3 +61,58 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.box{
+width: 100%;
+height: 100%;
+display: none;
+position: absolute;
+z-index:100;
+background: white;
+opacity: 0.6;
+top: 0px;
+}
+
+form{
+position: absolute;
+z-index: 101;
+display: none;
+width: 800px;
+height: 500px;
+border: 1px solid #cf1d52;
+margin-top: 50px;
+margin-left: 200px;
+background: white;
+top: 0px;
+padding: 40px;
+-webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+border-radius: 10px;
+transition: 0.3s;
+margin-left: 29%;
+color: black;
+}
+
+form input[type="text"]{
+width: 100%;
+}
+
+textarea {
+width: 100%;
+}
+
+.btn {
+background-color: #cf1d52; 
+padding:9px; 
+border-radius: 8px; 
+text-decoration: None; 
+color: white; 
+width: 130px;
+font-weight: bold;
+}
+
+.btn:hover {
+color: #cf1d52;
+background-color: white;
+border: 1px solid #cf1d52;
+}
