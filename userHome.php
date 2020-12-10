@@ -42,16 +42,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- end of mobile menu toggle button -->
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <!--<ul class="navbar-nav ml-auto">
-               
-                <li class="nav-item">
-                     <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-                </li>
-                <li class="nav-item">
-                   <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-                </li>
-                
-            </ul>-->
 	    <?php
 		$sql    = "SELECT * FROM Users where user_id= $session_id";
 		$result = mysqli_query($mysqli, $sql);
@@ -60,6 +50,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	while ($rows = mysqli_fetch_array($result)) { 			    
 	?>
 	<div class="dropdown">
+		<a href="reset-password.php" class="" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white">Create New Channel</a>
                 <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
 		<div class="dropdown-content">
         	<a href="profile.php">Edit Profile</a>
