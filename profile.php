@@ -53,7 +53,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                <ul class="navbar-nav ml-auto">
                    <li class="nav-item">
-                       <a class="nav-link page-scroll" href="#userhome.php">Home</a>
+                       <a class="nav-link page-scroll" href="userHome.php">Dashboard</a>
                    </li>
                    <li class="nav-item">
                      <a id="logoutbutton" class="nav-link page-scroll" href="logout.php">
@@ -71,21 +71,16 @@ while ($rows = mysqli_fetch_array($result)) {
 ?>
     <div class="container emp-profile">
                 <div class="row">
-                  <!--<a href="home.php"> Link </a>-->
-
                     <div class="col-md-4">
             <form method="post" action="#" enctype="multipart/form-data">
                         <div class="profile-img">
-                            <img src="user_images/<?php
-    echo $rows['image'];
-?>" alt="" class= "image"/>
+                            <img src="user_images/<?php echo $rows['image']; ?>" alt="" class= "image"/>
                             <div class="file btn btn-lg btn-primary">
                                 <img src= "images/pen.png"/>
                                 <label for="image">Edit</label>
                                 <input type="file" name="image" accept="image/*" class= "input-img"/>
                             </div>
                         </div>
-                <!--<center><input type="submit" name="submit" value="Save Image" class="signup-btn"></center>-->
             </div>
                     <div class="col-md-6">
                         <div class="profile-head">

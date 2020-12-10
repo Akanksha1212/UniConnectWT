@@ -1,15 +1,4 @@
-<?php
-// Initialize the session
-session_start();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-?>
- 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,9 +12,23 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-    <style type="text/css">
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+	<link href="css/userHome.css" rel="stylesheet">
+<link rel="icon" href="images/logo.png">
+</head>
+<body>
+<?php
+// Initialize the session
+include('config.php');
+session_start();
+
+$session_id = $_SESSION["id"];
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         
@@ -39,7 +42,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- end of mobile menu toggle button -->
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
+            <!--<ul class="navbar-nav ml-auto">
                
                 <li class="nav-item">
                      <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
@@ -48,31 +51,33 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                    <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
                 </li>
                 
-            </ul>
-            <span class="nav-item social-icons" style="">
-                <span class="fa-stack">
-                    <a href="profile.php">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                    </a>
-                </span>
-                <!-- <span class="fa-stack">
-                    <a href="#link">
-                        <i class="fas fa-circle fa-stack-2x twitter"></i>
-                        <i class="fa fa-user" fa-4x></i>
-                    </a>
-                </span> -->
-            </span>
+            </ul>-->
+	    <?php
+		$sql    = "SELECT * FROM Users where user_id= $session_id";
+		$result = mysqli_query($mysqli, $sql);
+	?>
+	<?php
+	while ($rows = mysqli_fetch_array($result)) { 			    
+	?>
+	<div class="dropdown">
+                <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
+		<div class="dropdown-content">
+        	<a href="profile.php">Edit Profile</a>
+        	<a href="reset-password.php">Reset Password</a>
+        	<a href="logout.php">Sign Out</a>
+      		</div>
+            </div>
+    	</div>
+	<?php 
+	}
+	?>
         </div>
     </nav>
 
-
 <!-- end of navbar -->
     <!-- end of navigation -->
-
-
-</head>
-<body >
-     <div style="background-image: url('https://cdn.slidemodel.com/wp-content/uploads/7243-01-low-poly-background-16x9-3-1.jpg'); background-repeat: no-repeat;background-size: cover;"> 
+     
+<div class= "login-card"> 
    <!-- Services -->
     <div id="services" class="cards-1">
         <div class="container">
