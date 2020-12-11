@@ -64,7 +64,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	<?php
 	while ($rows = mysqli_fetch_array($result)) { 			    
 	?>
-	<a id="create" href="#" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1440px; top: 42%; font-weight: bold; height:40px;">Create New Channel</a>
+	<a id="create" href="#" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1440px; top: 42%; font-weight: bold; height:40px;">Create New Post</a>
 	<div class="dropdown">
                 <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
 		<div class="dropdown-content">
@@ -87,20 +87,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
    <!-- Services -->
     <div id="services" class="cards-1">
         <div class="container">
-            <div class="col">
-                <div class="col-lg-12">
-                    <img src ="images/uni.png">
-                    <h4>Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to UniConnect!</h4>
-<br>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-             <div class="col">
-                <div class="col-lg-12">
-                    
-                 
-                   
-                    <div>
-                    <?php
+             </div> <!-- end of container -->
+    </div> <!-- end of cards-1 -->
+    <!-- end of services -->
+</div>
+<div id="box" class="box" align="center"></div>
+        <form method="post" action="#">
+
+        <b><span style= "color: #cf1d52; font-size: 30px;"><center>Create New Post</center></span></b><br>
+	<b>Subject</b><br>
+        <input type="text" name="post_subject" required/><br>
+        <br><b>Content</b><br>
+        <textarea name="post_content" required></textarea><br><br>
+        <select name="post_ch">;
+ <?php
 		                    $sql = "SELECT
                                 ch_id,
                                 ch_name,
@@ -111,57 +111,26 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $result = mysqli_query($mysqli, $sql);
                       
 	                    ?>
-	                    <?php
-	                    while ($rows = mysqli_fetch_array($result)) { 			    
-	                    ?>
-	                     <div class="card">
-                                           <a class="card-block stretched-link text-decoration-none" href="post.php">
-                           
-                       
-                                            <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                                            <div class="card-body">
-                                                <h4 class="card-title">#<?php echo $rows['ch_name'];?></h4>
-                                                <p><?php echo $rows['ch_description'];?></p>
-                                            </div>
-                                        </a>
-                                        </div>
-                                    
-	                    <?php 
+                   <?php while($row = mysqli_fetch_array($result))
+                    {?>
+                       <option value="<?php echo $row['ch_id'];?>"><?php echo $row['ch_name'];?></option>;
+                     <?php 
 	                    }
 	                    ?>
-
-
-
-                    </div>
- 
-
-                    
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of services -->
-</div>
-<div id="box" class="box" align="center"></div>
-        <form method="post" action="#">
-        <b><span style= "color: #cf1d52; font-size: 30px;"><center>Create New Channel</center></span></b><br>
-	<b>Channel Name</b><br>
-        <input type="text" name="ch_name" required/><br>
-        <br><b>Channel Description</b><br>
-        <textarea name="ch_description" required></textarea><br><br>
+                </select>;
         <center><input type="submit"  name= "submit" value="Create" class="btn"/> &nbsp; &nbsp;
         <button type="button" id="cancel" class="btn">Cancel</button></center>
         </form>
 <?php
 if (isset($_POST['submit'])) {
-        $ch_name  = $_POST['ch_name'];
-        $ch_description = $_POST['ch_description'];
+        $post_subject  = $_POST['post_subject'];
+        $post_content = $_POST['post_content'];
+        $post_ch = $_POST['post_ch'];
     //the form has been posted, so save it
-    $sql = "INSERT INTO Channels (ch_name, ch_description, user_ch)
-       VALUES('$ch_name','$ch_description',".$_SESSION["id"].")";
+    $sql = "INSERT INTO Posts (post_subject, post_content,post_date, post_ch,post_by)
+       VALUES('$post_subject','$post_content',now(),'$post_ch',".$_SESSION["id"].")";
     $result = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
-    var_dump($result);
+    
     if(!$result)
     {
         //something went wrong, display the error
