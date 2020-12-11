@@ -97,100 +97,45 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
              <div class="row">
                 <div class="col-lg-12">
                     
-                    <!-- Card -->
+                 
+                   
+                    <div>
+                    <?php
+		                    $sql = "SELECT
+                                ch_id,
+                                ch_name,
+                                ch_description
+                            FROM
+                                Channels";
+                     
+                    $result = mysqli_query($mysqli, $sql);
+                      
+	                    ?>
+	                    <?php
+	                    while ($rows = mysqli_fetch_array($result)) { 			    
+	                    ?>
+	                     <div class="card">
+                                           <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
+                           
+                       
+                                            <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
+                                            <div class="card-body">
+                                                <h4 class="card-title">#<?php echo $rows['ch_name'];?></h4>
+                                                <p><?php echo $rows['ch_description'];?></p>
+                                            </div>
+                                        </a>
+                                        </div>
+                                    
+	                    <?php 
+	                    }
+	                    ?>
 
-                    <div class="card">
-                       <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
-       
-   
-                        <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                        <div class="card-body">
-                            <h4 class="card-title">#General</h4>
-                            <p>Post and see what others are doing?</p>
-                        </div>
-                    </a>
+
+
                     </div>
-                    <!-- end of card -->
+ 
 
-                   <!-- Card -->
-
-                    <div class="card">
-                       <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
-       
-   
-                        <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                        <div class="card-body">
-                            <h4 class="card-title">#Announcements</h4>
-                            <p>Get all updates in one click</p>
-                        </div>
-                    </a>
-                    </div>
-                    <!-- end of card -->
-
-                  <!-- Card -->
-
-                    <div class="card">
-                       <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
-       
-   
-                        <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                        <div class="card-body">
-                            <h4 class="card-title">#Events</h4>
-                            <p>Seminars,Workshsops etc.</p>
-                        </div>
-                    </a>
-                    </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
                     
-                    <!-- Card -->
-
-                    <div class="card">
-                       <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
-       
-   
-                        <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                        <div class="card-body">
-                            <h4 class="card-title">#Hackathons</h4>
-                            <p>Team up and build awesome projects</p>
-                        </div>
-                    </a>
-                    </div>
-                    <!-- end of card -->
-
-                   <!-- Card -->
-
-                    <div class="card">
-                       <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
-       
-   
-                        <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                        <div class="card-body">
-                            <h4 class="card-title">#Events</h4>
-                            <p>Seminars,Workshsops etc.</p>
-                        </div>
-                    </a>
-                    </div>
-                    <!-- end of card -->
-
-                  <!-- Card -->
-
-                    <div class="card">
-                       <a class="card-block stretched-link text-decoration-none" href="https://www.google.com">
-       
-   
-                        <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                        <div class="card-body">
-                            <h4 class="card-title">Alumni Referral</h4>
-                            <p>Find alumna from your college</p>
-                        </div>
-                    </a>
-                    </div>
-                    <!-- end of card -->
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
