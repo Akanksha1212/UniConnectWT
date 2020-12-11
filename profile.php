@@ -218,7 +218,7 @@ while ($rows = mysqli_fetch_array($result)) {
         $imgFile      = $_FILES['image']['name'];
         $tmp_dir      = $_FILES['image']['tmp_name'];
         $imgSize      = $_FILES['image']['size'];
-        var_dump($_FILES);
+	var_dump($_FILES);
         if ($imgFile) {
             $upload_dir       = 'user_images/'; // upload directory
             $imgExt           = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION)); // get image extension
@@ -247,7 +247,7 @@ while ($rows = mysqli_fetch_array($result)) {
 
         if (!isset($errMSG)) {
             $query = "UPDATE Users SET first_name = '$first_name',
-                       last_name= '$last_name', country= '$country', phone='$phone', bio= '$bio', state= '$state', university=                                '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url',github_url='$github_url',                    linkedin_url= '$linkedin_url', bio= '$bio', image= '$userpic'
+                       last_name= '$last_name', country= '$country', phone='$phone', bio= '$bio', state= '$state', university= '$university', course= '$course', course_year= '$course_year', facebook_url= '$facebook_url',github_url='$github_url', linkedin_url= '$linkedin_url', bio= '$bio', image= '$userpic'
                       WHERE user_id = '$session_id'";
             $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
 ?>

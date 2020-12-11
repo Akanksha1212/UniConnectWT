@@ -32,11 +32,12 @@
 <body>
 <?php
 // Initialize the session
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 include('config.php');
 session_start();
 
 $session_id = $_SESSION["id"];
-
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -201,12 +202,35 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <form method="post" action="#">
         <b><span style= "color: #cf1d52; font-size: 30px;"><center>Create New Channel</center></span></b><br>
 	<b>Channel Name</b><br>
-        <input type="text" name="ch_name" /><br>
-        <br/><b>Channel Description</b><br>
-        <textarea name="ch_description"></textarea><br><br>
-        <center><input type="submit" value="Create" class="btn"/> &nbsp; &nbsp;
+        <input type="text" name="ch_name" required/><br>
+        <br><b>Channel Description</b><br>
+        <textarea name="ch_description" required></textarea><br><br>
+        <center><input type="submit"  name= "submit" value="Create" class="btn"/> &nbsp; &nbsp;
         <button type="button" id="cancel" class="btn">Cancel</button></center>
         </form>
-
+<?php
+if (isset($_POST['submit'])) {
+        $ch_name  = $_POST['ch_name'];
+        $ch_description = $_POST['ch_description'];
+    //the form has been posted, so save it
+    $sql = "INSERT INTO Channels (ch_name, ch_description, user_ch)
+       VALUES('$ch_name','$ch_description',".$_SESSION["id"].")";
+    $result = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
+    var_dump($result);
+    if(!$result)
+    {
+        //something went wrong, display the error
+        echo 'Error' . mysqli_error($mysqli);
+    }
+    else
+    { ?>
+      <script type="text/javascript">
+            alert("Creation Successful!");
+            window.location = "userHome.php";
+        </script>
+<?php
+    }
+}
+?>
 </body>
 </html>
