@@ -92,13 +92,29 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <!-- end of navbar -->
     <!-- end of navigation -->
      
-<div class= "login-card"> 
-   <!-- Services -->
-    <div id="services" class="cards-1">
-        <div class="container">
-             </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of services -->
+<div class= "login-card">
+<?php
+                $ch_id = $_GET['id'];
+		$sql    = "SELECT * FROM Channels where ch_id= $ch_id";
+		$result = mysqli_query($mysqli, $sql);
+	?>
+	<?php
+	while ($rows = mysqli_fetch_array($result)) { 			    
+	?>
+<h4 style= "color: #cf1d52;"><b>#<?php echo $rows['ch_name'] ?></b></h4> 
+<?php } ?>
+<?php
+
+	$sql = "SELECT * FROM Posts LEFT JOIN Users ON Posts.post_by = Users.user_id WHERE Posts.post_ch= $ch_id";
+        $result = mysqli_query($mysqli, $sql);
+        while ($rows = mysqli_fetch_array($result)) { 	
+?>
+<div>
+	<hr>
+	<h6><b><?php echo $rows['first_name']. " " .$rows['last_name']?></b>&nbsp; &nbsp; &nbsp; &nbsp; <?php echo date('d-m-Y', strtotime($rows['post_date'])); ?> at <?php echo date('h:i',strtotime($rows['post_date'])); if(date('H:i',strtotime($rows['post_date']))>12) { echo 'pm'; } else { echo 'am'; } ?></h6>
+	<p><b><?php echo $rows['post_subject']?></b><br> <?php echo $rows['post_content']?> </p> 
+</div>
+<?php } ?>
 </div>
 <div id="box" class="box" align="center"></div>
         <form method="post" action="#">

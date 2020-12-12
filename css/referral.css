@@ -85,11 +85,6 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
   display: block;
 }
 
-h4 {
-text-align: center;
-color: #cf1d52;
-}
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 .search {
@@ -146,8 +141,7 @@ color: #cf1d52;
         border: 1px solid #CCCCCC;
         border-top: none;
         cursor: pointer;
-        color: blue;
-        font-size: 20px;
+        font-size: 25px;
     }
     .result p:hover{
         background: #f2f2f2;

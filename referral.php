@@ -21,7 +21,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
+    $('.search input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
@@ -37,7 +37,7 @@ $(document).ready(function(){
     
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parents(".search").find('input[type="text"]').val($(this).text());
         $(this).parent(".result").empty();
     });
 });
@@ -99,11 +99,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </nav>
 
 <div class= "login-card"> 
-<h4><b>Referral Portal</b></h4>
+<h4 style= "text-align:center; color: #cf1d52;"><b>Referral Portal</b></h4>
 <div class="wrap">
 <div class="search">
-        <form method="POST" action= "#">
-        <input type="text" autocomplete="off" placeholder="Search Company..." name= "company" class= "searchTerm"><button type= "submit" name="submit" class= "searchButton"><i class="fa fa-search"></i></button>
+      <form method="POST" action= "#">
+        <input type="text" autocomplete="off" placeholder="Search Company..." name= "company" class= "searchTerm">
+	<button type= "submit" name="submit" class= "searchButton"><i class="fa fa-search"></i></button>
 	<div class="result"></div></form>
 </div>
 </div>

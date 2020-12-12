@@ -120,7 +120,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	                    while ($rows = mysqli_fetch_array($result)) { 			    
 	                    ?>
 	                     <div class="card">
-                                           <a class="card-block stretched-link text-decoration-none" href="post.php">
+                                           <a class="card-block stretched-link text-decoration-none" href="post.php?id= <?php echo $rows['ch_id']; ?>">
                            
                        
                                             <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
