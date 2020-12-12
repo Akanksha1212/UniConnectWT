@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Channel Posts</title>
+    <title>Referral Portal</title>
     
  <!-- Styles -->
 
@@ -13,26 +13,36 @@
     <link href="css/swiper.css" rel="stylesheet">
     <link href="css/magnific-popup.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="css/post.css" rel="stylesheet">
+    <link href="css/referral.css" rel="stylesheet">
     <link rel="icon" href="images/logo.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
     </head>
-    <script>
-	$(document).ready(function(){
-
-	  $('a#create').click(function(){
-	  $("#box").fadeIn('slow');
-	  $('form').fadeIn('slow');
-		});
-
-	  $('#cancel').click(function(){
-	  $('#box,form').hide();
-		});
-	}); 
-    </script>
 <body>
 <?php
 // Initialize the session
@@ -61,7 +71,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- end of mobile menu toggle button -->
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-	<ul class="navbar-nav ml-auto">
+	    <ul class="navbar-nav ml-auto">
                    <li class="nav-item">
                        <a class="nav-link page-scroll" href="userHome.php">Dashboard</a>
                    </li>
@@ -73,7 +83,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	<?php
 	while ($rows = mysqli_fetch_array($result)) { 			    
 	?>
-	<a id="create" href="#" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1350px; top: 42%; font-weight: bold; height:40px;">Create New Post</a>
 	<div class="dropdown">
                 <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
 		<div class="dropdown-content">
@@ -89,71 +98,45 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </nav>
 
-<!-- end of navbar -->
-    <!-- end of navigation -->
-     
 <div class= "login-card"> 
-   <!-- Services -->
-    <div id="services" class="cards-1">
-        <div class="container">
-             </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of services -->
+<h4><b>Referral Portal</b></h4>
+<div class="wrap">
+<div class="search">
+        <form method="POST" action= "#">
+        <input type="text" autocomplete="off" placeholder="Search Company..." name= "company" class= "searchTerm"><button type= "submit" name="submit" class= "searchButton"><i class="fa fa-search"></i></button>
+	<div class="result"></div></form>
 </div>
-<div id="box" class="box" align="center"></div>
-        <form method="post" action="#">
-
-        <b><span style= "color: #cf1d52; font-size: 30px;"><center>Create New Post</center></span></b><br>
-	<b>Subject</b><br>
-        <input type="text" name="post_subject" required/><br>
-        <br><b>Content</b><br>
-        <textarea name="post_content" required></textarea><br><br>
-        <select name="post_ch">;
- <?php
-		                    $sql = "SELECT
-                                ch_id,
-                                ch_name,
-                                ch_description
-                            FROM
-                                Channels";
-                     
-                    $result = mysqli_query($mysqli, $sql);
-                      
-	                    ?>
-                   <?php while($row = mysqli_fetch_array($result))
-                    {?>
-                       <option value="<?php echo $row['ch_id'];?>"><?php echo $row['ch_name'];?></option>;
-                     <?php 
-	                    }
-	                    ?>
-                </select>;
-        <center><input type="submit"  name= "submit" value="Create" class="btn"/> &nbsp; &nbsp;
-        <button type="button" id="cancel" class="btn">Cancel</button></center>
-        </form>
+</div>
 <?php
 if (isset($_POST['submit'])) {
-        $post_subject  = $_POST['post_subject'];
-        $post_content = $_POST['post_content'];
-        $post_ch = $_POST['post_ch'];
+        $company  = $_POST['company'];
+
     //the form has been posted, so save it
-    $sql = "INSERT INTO Posts (post_subject, post_content,post_date, post_ch,post_by)
-       VALUES('$post_subject','$post_content',now(),'$post_ch',".$_SESSION["id"].")";
+    $sql = "SELECT * FROM Referral WHERE company= '$company'";
     $result = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
-    
-    if(!$result)
+
+if(!$result)
     {
         //something went wrong, display the error
         echo 'Error' . mysqli_error($mysqli);
     }
-    else
-    { ?>
-      <script type="text/javascript">
-            alert("Creation Successful!");
-            window.location = "userHome.php";
-        </script>
-<?php
-    }
+    else if(mysqli_num_rows($result) > 0){
+                // Fetch result rows as an associative array
+                while($row = mysqli_fetch_array($result)){
+                    echo "<br><br><p>" . $row["name"] . "</p>";
+		    echo "<p>" . $row["company"] . "</p>";
+		    echo "<p>" . $row["position"] . "</p>";
+		    echo "<p>" . $row["location"] . "</p>";
+		    echo "<p>" . $row["email"] . "</p>";
+		    echo "<p>" . $row["linkedin_url"] . "</p>"; } 
+	}
+    else{
+                echo "<p>No matches found</p>";
+      }
 }
 ?>
+</div>
 </body>
 </html>
+
+

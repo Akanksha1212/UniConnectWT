@@ -3,18 +3,6 @@ body{
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba(33,198,224,1) 69%, rgba(0,123,255,1) 100%); 
 }
 
- .profile-card{
-     width:200px;
-     margin:auto;
-     box-shadow: 0 4px 10px 0 rgba(0,0,0.5);
-     margin-left: 20%;
-     margin-top: 4%;
-     border: black;
-   
-
- }
- * {box-sizing: border-box}
-
 /* Add padding to containers */
 .container {
   padding: 16px;
@@ -42,10 +30,14 @@ a {
 
 .emp-profile{
     padding: 3%;
-    margin-top: 3%;
+    margin-top: 7%;
     margin-bottom: 3%;
     border-radius: 0.5rem;
     background: #fff;
+    -webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: 0.3s;
 }
 .profile-img{
     text-align: center;

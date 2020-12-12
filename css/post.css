@@ -18,12 +18,21 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
 
 }
 
+.navbar-custom .nav-item .nav-link {
+	padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+		color: #fff;
+		opacity: 0.8;
+	position: absolute; 
+	right: 230px;
+	top: 40%; 
+}
+
 .dropdown-content {
     top: 35px;
 }
 .dropdown {
   position: relative;
-    left: 1570px;
+    right: 95px;
 }
 
 .dropdown a {

@@ -1,8 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Welcome to User Home</title>
     
  <!-- Styles -->
 
@@ -15,6 +16,9 @@
     <link href="css/userHome.css" rel="stylesheet">
     <link rel="icon" href="images/logo.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <script>
 	$(document).ready(function(){
@@ -57,6 +61,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- end of mobile menu toggle button -->
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	<a id="referral" href="referral.php" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1260px; top: 42%; font-weight: bold; height:40px;">Referral Portal</a>
 	    <?php
 		$sql    = "SELECT * FROM Users where user_id= $session_id";
 		$result = mysqli_query($mysqli, $sql);
@@ -101,7 +106,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                    
                     <div>
                     <?php
-		                    $sql = "SELECT
+		                $sql = "SELECT
                                 ch_id,
                                 ch_name,
                                 ch_description
