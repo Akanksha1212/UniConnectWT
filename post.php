@@ -122,11 +122,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	                    ?>
                    <?php while($row = mysqli_fetch_array($result))
                     {?>
-                       <option value="<?php echo $row['ch_id'];?>"><?php echo $row['ch_name'];?></option>;
+                       <option value="<?php echo $row['ch_id'];?>"><?php echo $row['ch_name'];?></option>
                      <?php 
 	                    }
 	                    ?>
-                </select>;
+                </select><br><br>
         <center><input type="submit"  name= "submit" value="Create" class="btn"/> &nbsp; &nbsp;
         <button type="button" id="cancel" class="btn">Cancel</button></center>
         </form>
