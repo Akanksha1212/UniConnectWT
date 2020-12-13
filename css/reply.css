@@ -1,0 +1,97 @@
+body{
+   background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba(33,198,224,1) 69%, rgba(0,123,255,1) 100%); 
+}
+
+.login-card {
+-webkit-box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 60%;
+  background-color: white;
+  margin-top: 7%;
+  margin-bottom: 3%;
+  height:  1160px;
+  padding: 3%;
+  margin-left: 20%;
+
+}
+
+.navbar-custom .nav-item .nav-link {
+	padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+		color: #fff;
+		opacity: 0.8;
+	position: absolute; 
+	right: 230px;
+	top: 40%; 
+}
+
+.dropdown-content {
+    top: 35px;
+}
+.dropdown {
+  position: relative;
+    right: 95px;
+}
+
+.dropdown a {
+  text-decoration: none;
+}
+
+.dropdown .dropbtn {
+  top: 100%;
+  margin: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  z-index: 1;
+  top: 100%;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  color: #cf1d52;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+textarea {
+width: 100%;
+}
+
+.btn {
+background-color: #cf1d52; 
+padding:9px; 
+border-radius: 8px; 
+text-decoration: None; 
+color: white; 
+width: 130px;
+font-weight: bold;
+}
+
+.btn:hover {
+color: #cf1d52;
+background-color: white;
+border: 1px solid #cf1d52;
+}
+

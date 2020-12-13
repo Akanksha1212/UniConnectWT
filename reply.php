@@ -13,27 +13,14 @@
     <link href="css/swiper.css" rel="stylesheet">
     <link href="css/magnific-popup.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="css/post.css" rel="stylesheet">
+    <link href="css/reply.css" rel="stylesheet">
     <link rel="icon" href="images/logo.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
-    <script>
-	$(document).ready(function(){
-
-	  $('a#create').click(function(){
-	  $("#box").fadeIn('slow');
-	  $('form').fadeIn('slow');
-		});
-
-	  $('#cancel').click(function(){
-	  $('#box,form').hide();
-		});
-	}); 
-    </script>
-
+    
 <body>
 <?php
 // Initialize the session
@@ -74,7 +61,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	<?php
 	while ($rows = mysqli_fetch_array($result)) { 			    
 	?>
-	<a id="create" href="#" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1350px; top: 42%; font-weight: bold; height:40px;">Create New Post</a>
+	
 	<div class="dropdown">
                 <a href= "#"> <img src="user_images/<?php echo $rows['image']; ?>" alt="" class="dropbtn"/>&nbsp<img src="images/down-arrow.png"/></a>
 		<div class="dropdown-content">
@@ -96,6 +83,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <div class= "login-card">
 <?php
                 $ch_id = $_GET['id'];
+                $p_id  = $_GET['p_id'];
 		$sql    = "SELECT * FROM Channels where ch_id= $ch_id";
 		$result = mysqli_query($mysqli, $sql);
 	?>
@@ -106,61 +94,41 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <?php } ?>
 <?php
 
-	$sql = "SELECT * FROM Posts LEFT JOIN Users ON Posts.post_by = Users.user_id WHERE Posts.post_ch= $ch_id";
+	$sql = "SELECT * FROM Posts JOIN Users ON Posts.post_by = Users.user_id WHERE Posts.post_ch= $ch_id AND Posts.post_id=$p_id;";
         $result = mysqli_query($mysqli, $sql);
         while ($rows = mysqli_fetch_array($result)) { 	
 ?>
 <div>
 	<hr>
+ 
 	<h6><b><?php echo $rows['first_name']. " " .$rows['last_name']?></b>&nbsp; &nbsp; &nbsp; &nbsp; <?php echo date('d-m-Y', strtotime($rows['post_date'])); ?> at <?php echo date('h:i',strtotime($rows['post_date'])); if(date('H:i',strtotime($rows['post_date']))>12) { echo 'pm'; } else { echo 'am'; } ?></h6>
 
-	<p><b><?php echo $rows['post_subject']?></b><br> <?php echo $rows['post_content']?> </p> 
+	<p><b><?php echo $rows['post_subject']?></b><br> <?php echo $rows['post_content']?> </p> &nbsp; &nbsp; 
+ <?php } ?>
+<hr>
 
-      
-<a id="reply" href="reply.php?id= <?php echo $rows['post_ch']; ?>&p_id= <?php echo $rows['post_id']; ?>"><i class="fa fa-reply" aria-hidden="true"> Add reply</i> </a> 
+<?php
 
-</div>
-<?php } ?>
-</div>
-  
-<div id="box" class="box" align="center"></div>
-        <form method="post" action="#">
+	$sql = "SELECT * FROM Posts JOIN Users ON Posts.post_by = Users.user_id JOIN Replies ON Replies.reply_post = Posts.post_id WHERE Posts.post_ch= $ch_id AND Posts.post_id=$p_id;";
+        $result = mysqli_query($mysqli, $sql);
+        while ($rows = mysqli_fetch_array($result)) { 	
+?>
+<h6><b><?php echo $rows['first_name']. " " .$rows['last_name']?></b>&nbsp; &nbsp; &nbsp; &nbsp; <?php echo date('d-m-Y', strtotime($rows['reply_date'])); ?> at <?php echo date('h:i',strtotime($rows['reply_date'])); if(date('H:i',strtotime($rows['reply_date']))>12) { echo 'pm'; } else { echo 'am'; } ?></h6>
+<p><?php echo $rows['reply_content']?></b><br></p>
 
-        <b><span style= "color: #cf1d52; font-size: 30px;"><center>Create New Post</center></span></b><br>
-	<b>Subject</b><br>
-        <input type="text" name="post_subject" required/><br>
-        <br><b>Content</b><br>
-        <textarea name="post_content" required></textarea><br><br>
-        <select name="post_ch">;
- <?php
-		                    $sql = "SELECT
-                                ch_id,
-                                ch_name,
-                                ch_description
-                            FROM
-                                Channels";
-                     
-                    $result = mysqli_query($mysqli, $sql);
-                      
-	                    ?>
-                   <?php while($row = mysqli_fetch_array($result))
-                    {?>
-                       <option value="<?php echo $row['ch_id'];?>"><?php echo $row['ch_name'];?></option>
-                     <?php 
-	                    }
-	                    ?>
-                </select><br><br>
-        <center><input type="submit"  name= "submit" value="Create" class="btn"/> &nbsp; &nbsp;
-        <button type="button" id="cancel" class="btn">Cancel</button></center>
-        </form>
+    <?php } ?>
+   <form method="post" action="#">
+       <textarea name="reply_content" required></textarea><br><br>
+        <input type="submit"  name= "submit" value="Add reply" class="btn"/> &nbsp; &nbsp;
+       </form>
 <?php
 if (isset($_POST['submit'])) {
-        $post_subject  = $_POST['post_subject'];
-        $post_content = $_POST['post_content'];
-        $post_ch = $_POST['post_ch'];
+        $reply_content = $_POST['reply_content'];
+       
+        
     //the form has been posted, so save it
-    $sql = "INSERT INTO Posts (post_subject, post_content,post_date, post_ch,post_by)
-       VALUES('$post_subject','$post_content',now(),'$post_ch',".$_SESSION["id"].")";
+    $sql = "INSERT INTO Replies (reply_content,reply_date, reply_ch,reply_by,reply_post)
+       VALUES('$reply_content',now(),'$_GET[id]',".$_SESSION["id"].",'$_GET[p_id]')";
     $result = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
     
     if(!$result)
@@ -171,15 +139,22 @@ if (isset($_POST['submit'])) {
     else
     { ?>
       <script type="text/javascript">
-var cid = <?php echo json_encode($ch_id); ?>;
-
-            window.location.href = "post.php?id="+cid;
-           
+    var cid = <?php echo json_encode($ch_id); ?>;
+    var pid = <?php echo json_encode($p_id); ?>;
+            
+            window.location.href = "reply.php?id="+cid+"&p_id="+pid;
         </script>
 <?php
     }
 }
 ?>
+       
+</div>
+
+</div>
+
+  
+
 </body>
 </html>
 
