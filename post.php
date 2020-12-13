@@ -33,6 +33,19 @@
 		});
 	}); 
     </script>
+<script>
+	$(document).ready(function(){
+
+	  $('a#reply').click(function(){
+	  $("#box1").fadeIn('slow');
+	  $('#replyform').fadeIn('slow');
+		});
+
+	  $('#cancel1').click(function(){
+	  $('#box1,#replyform').hide();
+		});
+	}); 
+    </script>
 <body>
 <?php
 // Initialize the session
@@ -113,9 +126,57 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	<hr>
 	<h6><b><?php echo $rows['first_name']. " " .$rows['last_name']?></b>&nbsp; &nbsp; &nbsp; &nbsp; <?php echo date('d-m-Y', strtotime($rows['post_date'])); ?> at <?php echo date('h:i',strtotime($rows['post_date'])); if(date('H:i',strtotime($rows['post_date']))>12) { echo 'pm'; } else { echo 'am'; } ?></h6>
 	<p><b><?php echo $rows['post_subject']?></b><br> <?php echo $rows['post_content']?> </p> 
+<a id="reply" href="#"><i class="fa fa-reply" aria-hidden="true"> Add reply</i> </a>
 </div>
 <?php } ?>
 </div>
+
+
+<div id="box1" class="box" align="center"></div>
+        <form id ="replyform" method="post" action="#">
+
+        <b><span style= "color: #cf1d52; font-size: 30px;"><center>Replies</center></span></b><br>
+	
+        <br><b>Content</b><br>
+        <textarea name="t_content" required></textarea><br><br>
+        
+ <?php
+if (isset($_POST['submit1'])) {
+        
+        $reply_content = $_POST['reply_content'];
+        $reply_ch = $_POST['reply_ch'];
+        $reply_post = $_POST['reply_post'];
+    //the form has been posted, so save it
+    $sql = "INSERT INTO Replies (reply_content,reply_date, reply_ch,reply_by,reply_post)
+       VALUES('$reply_content',now(),'$reply_ch',".$_SESSION["id"].",'$REPLY_POST')";
+    $result = mysqli_query($mysqli,$sql) or die(mysqli_error($mysqli));
+    
+    if(!$result)
+    {
+        //something went wrong, display the error
+        echo 'Error' . mysqli_error($mysqli);
+    }
+    else
+    { ?>
+      <script type="text/javascript">
+            alert("Creation Successful!");
+            window.location = "userHome.php";
+        </script>
+<?php
+    }
+}
+?><br>
+        <center><input type="submit"  name= "submit1" value="Send" class="btn"/> &nbsp; &nbsp;
+        <button type="button" id="cancel1" class="btn">Cancel</button></center>
+        </form>
+
+
+<!-- end of login card-->
+   
+
+
+
+  
 <div id="box" class="box" align="center"></div>
         <form method="post" action="#">
 
@@ -173,3 +234,4 @@ if (isset($_POST['submit'])) {
 ?>
 </body>
 </html>
+
