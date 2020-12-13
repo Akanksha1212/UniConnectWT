@@ -109,7 +109,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <?php
 
-	$sql = "SELECT * FROM Posts JOIN Users ON Posts.post_by = Users.user_id JOIN Replies ON Replies.reply_post = Posts.post_id WHERE Posts.post_ch= $ch_id AND Posts.post_id=$p_id;";
+	$sql = "SELECT * FROM Replies JOIN Users ON Replies.reply_by = Users.user_id JOIN Posts ON Replies.reply_post = Posts.post_id WHERE Posts.post_ch= $ch_id AND Posts.post_id= $p_id;";
+
         $result = mysqli_query($mysqli, $sql);
         while ($rows = mysqli_fetch_array($result)) { 	
 ?>
