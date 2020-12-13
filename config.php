@@ -2,7 +2,7 @@
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
+define('DB_USERNAME', 'phpmy');
 define('DB_PASSWORD', 'Godot#19');
 define('DB_NAME', 'UniConnect');
  
