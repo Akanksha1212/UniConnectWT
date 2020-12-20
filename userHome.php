@@ -94,8 +94,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="container">
             <div class="col">
                 <div class="col-lg-12">
+			<h4>Hi! <b><?php echo $_SESSION["name"] ?></b>. Welcome to UniConnect!</h4>
                     <img src ="images/uni.png">
-                    <h4>Hi! <b><?php echo $_SESSION["name"] ?></b>. Welcome to UniConnect!</h4>
+                    
 <br>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -119,17 +120,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	                    <?php
 	                    while ($rows = mysqli_fetch_array($result)) { 			    
 	                    ?>
-	                     <div class="card">
-                                           <a class="card-block stretched-link text-decoration-none" href="post.php?id= <?php echo $rows['ch_id']; ?>">
+<br>
+	                     <div class="channel channel-1">
+                                           <a href="post.php?id= <?php echo $rows['ch_id']; ?>">
                            
                        
-                                            <img class="card-image" src="images/services-icon-1.svg" alt="alternative">
-                                            <div class="card-body">
-                                                <h4 class="card-title">#<?php echo $rows['ch_name'];?></h4>
+                                            <img src="images/services-icon-1.svg" alt="alternative">
+                                            <div class="">
+                                                <h4 class="">#<?php echo $rows['ch_name'];?></h4>
                                                 <p><?php echo $rows['ch_description'];?></p>
                                             </div>
                                         </a>
-                                        </div>
+                               </div>
                                     
 	                    <?php 
 	                    }

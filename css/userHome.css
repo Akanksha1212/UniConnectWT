@@ -12,8 +12,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,191,216,1) 0%, rgba
   background-color: white;
   margin-top: 7%;
   margin-bottom: 3%;
-  height:  2500px;
-  padding: 3%;
+  height:  2800px;
   margin-left: 20%;
 
 }
@@ -107,7 +106,7 @@ width: 100%;
 background-color: #cf1d52; 
 padding:9px; 
 border-radius: 8px; 
-text-decoration: None; 
+text-decoration: none; 
 color: white; 
 width: 130px;
 font-weight: bold;
@@ -117,4 +116,44 @@ font-weight: bold;
 color: #cf1d52;
 background-color: white;
 border: 1px solid #cf1d52;
+}
+
+.channel{
+    height:350px;
+    width: 45%;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  margin-bottom: 45px;
+  display: inline-block;
+}
+
+.channel:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.channel h4{
+  font-weight: 600;
+   color: #cf1d52;
+}
+
+.channel a{
+ text-decoration: none !important;
+ color: #cf1d52;
+}
+
+.channel img {
+  width: 40%;
+  height: 200px;
+}
+
+
+@media(max-width: 990px){
+  .channel{
+    margin: 20px;
+  }
 }

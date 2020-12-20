@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Referral Portal</title>
+    <title>Alumni Referral Portal</title>
     
  <!-- Styles -->
 
@@ -99,7 +99,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </nav>
 
 <div class= "login-card"> 
-<h4 style= "text-align:center; color: #cf1d52;"><b>Referral Portal</b></h4>
+<h4 style= "text-align:center; color: #cf1d52;"><b>Alumni Referral Portal</b></h4>
 <div class="wrap">
 <div class="search">
       <form method="POST" action= "#">
@@ -132,13 +132,12 @@ if(!$result)
 		    echo "<p>" . $row["linkedin_url"] . "</p>"; } 
 	}
     else{
-                echo "<p>No matches found</p>";
+                echo "<p class= 'match' style= 'color: #28caeb; text-align: center; margin-top: 40px; font-size: 30px;'>No matches found!</p>";
       }
 }
 ?>
 </div>
 </body>
-<?php include 'footer.php'; ?>
 </html>
 
 

@@ -126,7 +126,7 @@ $mysqli->close();
                 </li>
                 <li class="nav-item">
                   <span class="navbar-text">
-                             <a id="signupButton" href="login.php" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None;">
+                             <a id="signupButton" href="signup.php" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None;">
                              <span class="fa fa-sign-in"></span>Get Started</a>
                   </span>
                 </li>
