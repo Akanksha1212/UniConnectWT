@@ -67,7 +67,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 		$result = mysqli_query($mysqli, $sql);
 	?>
 	<?php
-	while ($rows = mysqli_fetch_array($result)) { 			    
+	while ($rows = mysqli_fetch_array($result)) { 		    
 	?>
 	<a id="create" href="#" style="background-color: #cf1d52; padding:9px; border-radius: 8px; text-decoration: None; color: white; position: absolute; left: 1440px; top: 42%; font-weight: bold; height:40px;">Create New Channel</a>
 	<div class="dropdown">
@@ -95,7 +95,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="col">
                 <div class="col-lg-12">
                     <img src ="images/uni.png">
-                    <h4>Hi! <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to UniConnect!</h4>
+                    <h4>Hi! <b><?php echo $_SESSION["name"] ?></b>. Welcome to UniConnect!</h4>
 <br>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->

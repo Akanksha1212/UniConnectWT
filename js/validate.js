@@ -5,13 +5,13 @@ function validateForm() {
 
     var usernameRegex = "(^(([a-z_])+){5,}(([0-9])+)?$)|^[a-z_]{2}$|(^(([a-z_])+){1,}((([0-9])+){2,})$)";
 
-    var phoneRegex= "(/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/)";
+    var phoneRegex= "";
 
     //var firstname= document.getElementById("fname").value;
-        var atposition=emailID.indexOf("@");  
-var dotposition=emailID.lastIndexOf(".");  
-if (atposition<1 || dotposition<atposition+2 || dotposition+2>=emailID.length){  
-  alert("Please enter a valid e-mail address.");  
+    var atposition=emailID.indexOf("@");  
+    var dotposition=emailID.lastIndexOf(".");  
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=emailID.length){  
+        alert("Please enter a valid e-mail address.");  
   return false;  
   }
 if(!username.match(usernameRegex)) {
@@ -19,7 +19,7 @@ if(!username.match(usernameRegex)) {
     return false;
 }  
 
-if(!phone.match(phoneRegex)) {
+if(phone.length==10) {
     alert("Please Enter a valid Phone Number");
     return false;
 }  
