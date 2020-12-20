@@ -121,6 +121,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
    <form method="post" action="#">
        <textarea name="reply_content" required></textarea><br><br>
         <input type="submit"  name= "submit" value="Add reply" class="btn"/> &nbsp; &nbsp;
+        <a href="post.php?id= <?php echo $ch_id ?>" class="btn">Back</a>
        </form>
 <?php
 if (isset($_POST['submit'])) {
