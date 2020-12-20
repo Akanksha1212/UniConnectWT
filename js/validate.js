@@ -19,10 +19,10 @@ if(!username.match(usernameRegex)) {
     return false;
 }  
 
-if(phone.length==10) {
+if(phone.length!=10) {
     alert("Please Enter a valid Phone Number");
     return false;
-}  
+}
 }
 
 var check = function() {
