@@ -4,7 +4,7 @@ UniConnect is a Web Application where peers can collaborate having discussions i
 ## Screenshots : 
 
 #### UniConnect - Home Page                      
-<img src="images/1.png" width="900" alt= "UniConnect - Home Page">
+<img src="images/1.png" alt= "UniConnect - Home Page">
 <br>
 
 #### Sign Up Page
