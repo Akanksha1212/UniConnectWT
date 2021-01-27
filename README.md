@@ -14,6 +14,4 @@
 <img src="Screenshot_2021-01-27 Welcome to User Home.png" width="900">
 <br>
 <img src="Screenshot_2021-01-27 Welcome to User Home(1).png" width="900">
-  
-### Important : The dialog flow json file has not been added due to security reasons.
 
