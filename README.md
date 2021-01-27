@@ -3,9 +3,9 @@
 
 ## Screenshots : 
 
-<img src="images/Screenshot_2021-01-27 UniConnect - Collaborate with your peers.png" width="900">
+<img src="images/Screenshot_2021-01-27 UniConnect - Collaborate with your peers.png" width="500">
 <br>
-<img src="images/2.png" width="900">
+<img src="images/2.png" width="500">
 <br>
 <img src="images/3.png" width="900">
 <br>
