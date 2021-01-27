@@ -3,8 +3,8 @@ UniConnect is a Web Application where peers can collaborate having discussions i
 
 ## Screenshots : 
 
-<img src="images/1.png" width="500" alt= "UniConnect - Home Page">
-<img src="images/2.png" width="500" alt= "UniConnect - Sign Up Page">
+<img src="images/1.png" width="400" alt= "UniConnect - Home Page">
+<img src="images/2.png" width="400" alt= "UniConnect - Sign Up Page">
 <br>
 <img src="images/3.png" width="900" alt= "UniConnect - Sign In Page">
 <br>
@@ -14,8 +14,8 @@ UniConnect is a Web Application where peers can collaborate having discussions i
 <br>
 <img src="images/6.png" width="900" alt= "UniConnect - Create Channel Box">
 <br>
-<img src="images/7.png" width="900" alt= "UniConnect - Discussions (Posts) in Channel">
-<img src="images/9.png" width="900" alt= "UniConnect - Create Post Page">
+<img src="images/7.png" width="400" alt= "UniConnect - Discussions (Posts) in Channel">
+<img src="images/9.png" width="400" alt= "UniConnect - Create Post Page">
 <br>
-<img src="images/8.png" width="900" alt= "UniConnect - Posts Replies Page">
-<img src="images/10.png" width="900" alt= "UniConnect - Search Alumna for Referral Page">
+<img src="images/8.png" width="400" alt= "UniConnect - Posts Replies Page">
+<img src="images/10.png" width="400" alt= "UniConnect - Search Alumna for Referral Page">
